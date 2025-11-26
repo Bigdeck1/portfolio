@@ -1,0 +1,287 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: white;
+  overflow-x: hidden;
+  min-width: 360px;
+}
+
+/* MAIN CONTAINER */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Prevent content from shrinking */
+  width: 100%;
+  padding: 40px 20px;
+}
+
+/* FIX: Reduce influence of spheres on layout */
+.background-3d {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 20s infinite ease-in-out;
+  opacity: 0.45; /* softer so card stands out */
+}
+
+.sphere-1 {
+  width: 350px; height: 350px;
+  top: -140px; left: -100px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+}
+
+.sphere-2 {
+  width: 220px; height: 220px;
+  bottom: -90px; right: -40px;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+}
+
+.sphere-3 {
+  width: 260px; height: 260px;
+  top: 50%; left: 55%;
+  background: radial-gradient(circle, #06b6d4, transparent);
+}
+
+/* CUBES */
+.cube {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(139,92,246,0.3));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+  animation: rotate3d 30s infinite linear;
+  opacity: 0.35;
+}
+
+.cube-1 {
+  top: 28%;
+  left: 10%;
+}
+
+.cube-2 {
+  bottom: 18%;
+  right: 12%;
+}
+
+/* LOGIN CARD — FIXED SIZE */
+.login-card {
+  width: 100%;
+  max-width: 580px; /* BIGGER CARD */
+  background: rgba(30, 41, 59, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(22px);
+  border-radius: 28px;
+  padding: 50px; /* more breathable */
+  z-index: 10;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: 0.4s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(59,130,246,0.4);
+}
+
+/* TITLE */
+.login-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 28px;
+  font-size: 16px;
+}
+
+/* INPUT GROUP */
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+/* INPUT FIELD - FIXED */
+.input-field {
+  width: 100%;
+  padding: 16px 55px; /* more balanced */
+  border-radius: 14px;
+  border: 2px solid #334155;
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  font-size: 16px;
+  transition: 0.3s ease;
+  height: 54px; /* ensures perfect vertical alignment */
+}
+
+.input-field:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 6px rgba(236,72,153,0.35);
+}
+
+/* ICON INSIDE INPUT - FIXED (Perfect Centering) */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  color: #ec4899;
+  font-size: 20px; /* better sizing */
+  pointer-events: none;
+}
+
+/* PASSWORD TOGGLE ICON */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ec4899;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle-password:hover {
+  color: #f472b6;
+}
+
+/* LOGIN BUTTON */
+.login-button {
+  width: 100%;
+  padding: 18px;
+  margin-top: 8px;
+  border-radius: 14px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 50px rgba(139, 92, 246, 0.6);
+}
+
+/* LINKS */
+.signup-link,
+.forgot-password {
+  color: #8b5cf6;
+  text-align: center;
+  display: block;
+  margin-top: 14px;
+}
+
+.signup-link:hover,
+.forgot-password:hover {
+  color: #ec4899;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, -25px) scale(1.12); }
+}
+
+@keyframes rotate3d {
+  0% { transform: rotate3d(1,1,1,0deg); }
+  100% { transform: rotate3d(1,1,1,360deg); }
+}
+
+/* RESPONSIVE FIX */
+@media(max-width: 480px) {
+  .login-card {
+    padding: 35px;
+    max-width: 92%;
+  }
+  .login-title { font-size: 30px; }
+}
+/* SOCIAL LOGIN CONTAINER */
+.social-login {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* BUTTON */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* HOVER EFFECTS (Neon glow) */
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(236, 72, 153, 0.45);
+  border-color: rgba(236, 72, 153, 0.6);
+}
+
+/* ICON FIX */
+.social-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+/* SPECIAL BRAND COLORS ON HOVER */
+.google:hover {
+  background: rgba(234, 67, 53, 0.15);
+}
+
+.facebook:hover {
+  background: rgba(59, 89, 152, 0.15);
+}
+
+.github:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

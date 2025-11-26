@@ -1,0 +1,51 @@
+/* ===== Simple Pink Themed Biography Page ===== */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #ffe3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.bio-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+  border: 3px solid #ffb3d9;
+}
+
+.name {
+  text-align: center;
+  font-size: 2rem;
+  color: #d81b60;
+  margin-bottom: 5px;
+}
+
+.section {
+  text-align: center;
+  font-weight: bold;
+  color: #ff4f9a;
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: #d81b60;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.about, .goals {
+  color: #444;
+  line-height: 1.6;
+  background: #ffe9f7;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ffb3d9;
+}
